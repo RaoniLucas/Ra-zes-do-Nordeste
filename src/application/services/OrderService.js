@@ -94,7 +94,7 @@ export const OrderService = {
 
     getMyOrders: async (token) => {
         try {
-            return await apiClient.get('/user/orders', null, token);
+            return await apiClient.get('/user/orders', token);
         } catch {
             return mockOrders;
         }

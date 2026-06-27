@@ -16,14 +16,12 @@ export default function RegisterModal({ onSuccess, onSwitchToLogin, onClose }) {
     const [telefone, setTelefone] = useState('');
 
     const handleSubmit = async (e) => {
-        const user = await register(nome, email, password, telefone);
-
         e.preventDefault();
         setError('');
 
         console.log('RegisterModal - submit:', { nome, email, password, confirmPassword });
 
-        if (!nome || !email || !password || !confirmPassword) {
+        if (!nome || !email || !password || !confirmPassword || !telefone) {
             setError('Preencha todos os campos');
             return;
         }
@@ -40,7 +38,7 @@ export default function RegisterModal({ onSuccess, onSwitchToLogin, onClose }) {
 
         setIsLoading(true);
         try {
-            const user = await register(nome, email, password);
+            const user = await register(nome, email, password, telefone);
             console.log('RegisterModal - sucesso:', user);
             setRegisteredUser(user);
             setShowLocationSetup(true);

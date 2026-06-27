@@ -1,3 +1,4 @@
+import acarajeImg from '@/assets/img/acaraje.png';
 import './SlideAcaraje.css';
 
 export default function SlideAcaraje({ onCheckout, isTotem = false, onProductSelect }) {
@@ -32,7 +33,7 @@ export default function SlideAcaraje({ onCheckout, isTotem = false, onProductSel
                 </button>
             </div>
             <div className="acaraje-content">
-                <img className="acaraje-image" src="/src/assets/img/acaraje.png" alt="Acarajé baiano" />
+                <img className="acaraje-image" src={acarajeImg} alt="Acarajé baiano" />
             </div>
         </div>
     );

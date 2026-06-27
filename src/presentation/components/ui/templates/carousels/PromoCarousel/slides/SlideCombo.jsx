@@ -1,3 +1,4 @@
+import comboImg from '@/assets/img/combo_promocional.png';
 import './SlideCombo.css';
 
 export default function SlideCombo({ onCheckout, isTotem = false, onProductSelect }) {
@@ -27,7 +28,7 @@ export default function SlideCombo({ onCheckout, isTotem = false, onProductSelec
                 </button>
             </div>
             <div className="slide-combo-image">
-                <img className="combo-image" src="/src/assets/img/combo_promocional.png" alt="combo-promocional" />
+                <img className="combo-image" src={comboImg} alt="combo-promocional" />
             </div>
         </div>
     );

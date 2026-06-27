@@ -308,6 +308,21 @@ export const handlers = [
         );
     }),
 
+    http.get('/api/user/orders', async ({ request }) => {
+        await simulateDelay();
+        const token = request.headers.get('Authorization')?.replace('Bearer ', '');
+        const userId = extractUserId(token);
+        if (!userId) {
+            return HttpResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+        return HttpResponse.json(orderDB.findByUser(userId));
+    }),
+
+    http.get('/api/products/seasonal/:season', async ({ params }) => {
+        await simulateDelay();
+        return HttpResponse.json(productDB.findBySeason(params.season));
+    }),
+
     http.post('/api/payment/process', async () => {
         await simulateDelay();
         const r = Math.random();

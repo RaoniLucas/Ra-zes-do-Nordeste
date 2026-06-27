@@ -1,0 +1,12 @@
+<svg width="100%" viewBox="0 0 690 410" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:15px;font-weight:400;text-anchor:start;dominant-baseline:auto">Hachura branca espaçada fundo transparente</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:15px;font-weight:400;text-anchor:start;dominant-baseline:auto">Linhas diagonais brancas estilo cartoon com fundo transparente.</desc>
+
+  <defs>
+    <pattern id="hatch" width="32" height="32" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="32" stroke="#ffffff" stroke-width="2"/>
+    </pattern>
+  </defs>
+
+  <rect width="680" height="400" fill="url(#hatch)" style="stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:15px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</svg>

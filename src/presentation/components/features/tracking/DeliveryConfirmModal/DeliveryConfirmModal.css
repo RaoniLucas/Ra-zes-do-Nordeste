@@ -1,0 +1,87 @@
+.delivery-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 700;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: background 0.28s ease;
+}
+
+.delivery-overlay.visible {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.delivery-modal {
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-width: 520px;
+    padding: 32px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    transform: translateY(100%);
+    transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.delivery-modal.visible {
+    transform: translateY(0);
+}
+
+.delivery-icon {
+    font-size: 3rem;
+}
+
+.delivery-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.delivery-hint {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+.delivery-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 4px;
+}
+
+.delivery-btn-confirm {
+    padding: 14px;
+    background: #2d6a4f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delivery-btn-confirm:hover {
+    background: #245a42;
+}
+
+.delivery-btn-dispute {
+    padding: 14px;
+    background: transparent;
+    color: #c0392b;
+    border: 1.5px solid #e74c3c;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.delivery-btn-dispute:hover {
+    background: #fde8e8;
+}

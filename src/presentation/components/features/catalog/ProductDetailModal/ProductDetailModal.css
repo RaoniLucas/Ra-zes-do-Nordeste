@@ -1,0 +1,244 @@
+.product-detail-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: background 0.26s ease;
+}
+
+.product-detail-overlay.visible {
+    background: rgba(0, 0, 0, 0.52);
+}
+
+.product-detail-modal {
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90dvh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(100%);
+    transition: transform 0.26s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.product-detail-modal.visible {
+    transform: translateY(0);
+}
+
+.product-detail-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.product-detail-hero {
+    background: #fdf5ec;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.product-detail-emoji {
+    font-size: 72px;
+}
+
+.product-detail-body {
+    padding: 20px 20px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.product-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.product-detail-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+    flex: 1;
+}
+
+.product-detail-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.product-detail-description {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.55;
+}
+
+.product-detail-quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.product-detail-quantity-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    flex: 1;
+}
+
+.quantity-stepper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #f5f5f5;
+    border-radius: 20px;
+    padding: 4px 8px;
+}
+
+.quantity-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn:hover {
+    background: #e0e0e0;
+}
+
+.quantity-value {
+    font-weight: 700;
+    font-size: 1rem;
+    min-width: 20px;
+    text-align: center;
+}
+
+.product-detail-subtotal {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    min-width: 70px;
+    text-align: right;
+}
+
+.product-detail-add-btn {
+    width: 100%;
+    padding: 14px;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.product-detail-add-btn:hover:not(:disabled) {
+    background: #333;
+}
+
+.product-detail-add-btn.added {
+    background: #2d6a4f;
+}
+
+.product-detail-add-btn:disabled {
+    cursor: default;
+}
+
+.suggestions-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.suggestions-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.suggestion-emoji {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.suggestion-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.suggestion-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
+.suggestion-price {
+    font-size: 0.82rem;
+    color: #666;
+}
+
+.suggestion-add-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid #1a1a1a;
+    background: transparent;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.suggestion-add-btn:hover:not(:disabled) {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.suggestion-add-btn.added {
+    background: #2d6a4f;
+    border-color: #2d6a4f;
+    color: #fff;
+    cursor: default;
+}

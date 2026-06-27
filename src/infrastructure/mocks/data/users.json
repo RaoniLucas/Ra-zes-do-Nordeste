@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "nome": "Fulano",
+    "email": "fulano@email.com",
+    "password": "123456",
+    "telefone": "(81) 99999-0000",
+    "pontos": 150,
+    "isLoyaltyMember": true,
+    "lgpd_consent": true,
+    "endereco": {
+      "cep": "51021000",
+      "logradouro": "Av. Conselheiro Agostinho",
+      "bairro": "Boa Viagem",
+      "cidade": "Recife",
+      "estado": "PE"
+    },
+    "createdAt": "2025-01-15T10:30:00Z"
+  },
+  {
+    "id": 2,
+    "nome": "Ciclano",
+    "email": "ciclano@email.com",
+    "password": "123456",
+    "telefone": "(81) 99999-0001",
+    "pontos": 320,
+    "isLoyaltyMember": true,
+    "lgpd_consent": true,
+    "endereco": {
+      "cep": "51110000",
+      "logradouro": "Rua do Amparo",
+      "bairro": "Carmo",
+      "cidade": "Olinda",
+      "estado": "PE"
+    },
+    "createdAt": "2025-02-20T14:15:00Z"
+  },
+  {
+    "id": 3,
+    "nome": "Beltrano",
+    "email": "beltrano@email.com",
+    "password": "123456",
+    "telefone": "(71) 99999-0000",
+    "pontos": 75,
+    "isLoyaltyMember": false,
+    "lgpd_consent": true,
+    "endereco": {
+      "cep": "40000000",
+      "logradouro": "Av. Magalhaes Neto",
+      "bairro": "Pituba",
+      "cidade": "Salvador",
+      "estado": "BA"
+    },
+    "createdAt": "2025-03-10T09:00:00Z"
+  }
+]

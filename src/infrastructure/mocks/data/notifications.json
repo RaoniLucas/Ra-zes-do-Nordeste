@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "text": "Promotion: Tapioca 50% off this weekend!",
+    "type": "promo",
+    "read": false,
+    "orderId": null,
+    "createdAt": "2025-06-01T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "userId": 1,
+    "text": "You earned 50 points on your last order!",
+    "type": "points",
+    "read": false,
+    "orderId": null,
+    "createdAt": "2025-06-02T14:30:00Z"
+  }
+]

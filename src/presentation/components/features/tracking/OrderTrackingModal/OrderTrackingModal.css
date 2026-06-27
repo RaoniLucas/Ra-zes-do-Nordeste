@@ -1,0 +1,583 @@
+.tracking-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 600;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transition: background 0.26s ease;
+}
+
+.tracking-overlay.visible {
+    background: rgba(0, 0, 0, 0.52);
+}
+
+.tracking-modal {
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    max-width: 520px;
+    max-height: 88dvh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.26s cubic-bezier(0.32, 0.72, 0, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.tracking-modal.visible {
+    transform: translateY(0);
+}
+
+.tracking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 22px 20px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.tracking-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.tracking-order-id {
+    font-size: 0.82rem;
+    color: #888;
+    margin-top: 2px;
+    display: block;
+}
+
+.tracking-close {
+    background: #f0f0f0;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tracking-loading {
+    padding: 40px 20px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.tracking-error {
+    padding: 16px 20px;
+    color: #c0392b;
+    font-size: 0.88rem;
+}
+
+.tracking-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 20px 0;
+    padding: 16px 18px;
+    background: #f5f5f5;
+    border-radius: 14px;
+}
+
+.tracking-status-icon {
+    font-size: 2rem;
+}
+
+.tracking-status-label {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.tracking-steps {
+    list-style: none;
+    padding: 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.tracking-step {
+    display: flex;
+    gap: 14px;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.tracking-step.done {
+    opacity: 1;
+}
+
+.tracking-step.active {
+    opacity: 1;
+}
+
+.tracking-step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.tracking-step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+.tracking-step.done .tracking-step-dot {
+    background: #2d6a4f;
+    color: #fff;
+}
+
+.tracking-step.active .tracking-step-dot {
+    background: #1a1a1a;
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(26, 26, 26, 0.15);
+}
+
+.tracking-step-line {
+    width: 2px;
+    flex: 1;
+    min-height: 20px;
+    background: #e0e0e0;
+    margin: 4px 0;
+    transition: background 0.3s;
+}
+
+.tracking-step-line.done {
+    background: #2d6a4f;
+}
+
+.tracking-step-content {
+    padding: 4px 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tracking-step-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.tracking-step-pulse {
+    font-size: 0.78rem;
+    color: #888;
+    animation: pulse-text 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-text {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+.tracking-refresh-hint {
+    margin: 4px 20px 0;
+    font-size: 0.8rem;
+    color: #aaa;
+    text-align: center;
+}
+
+.tracking-close-btn {
+    margin: 16px 20px 28px;
+    padding: 14px;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.tracking-close-btn:hover {
+    background: #333;
+}
+
+/* Botão Confirmar Entrega */
+.tracking-confirm-btn {
+    /* margin: 16px 20px 8px; */
+    padding: 14px;
+    background: #2d6a4f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.tracking-confirm-btn:hover:not(:disabled) {
+    background: #1b4d3a;
+}
+
+.tracking-confirm-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* Feedback Overlay e Modal */
+.feedback-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.feedback-modal {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 24px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.feedback-modal h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #1a1715;
+}
+
+.feedback-modal p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.feedback-close-btn {
+    margin-top: 16px;
+    padding: 10px 24px;
+    background: #1a1715;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.tracking-confirm-btn {
+    padding: 14px;
+    background: #2d6a4f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.tracking-confirm-btn:hover:not(:disabled) {
+    background: #245a42;
+}
+
+.tracking-confirm-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.tracking-picked-up-msg {
+    margin: 12px 20px 8px;
+    padding: 14px;
+    background: #e8f5e9;
+    color: #2d6a4f;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Tracking actions */
+.tracking-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 20px 8px;
+}
+
+.tracking-confirm-btn {
+    padding: 14px;
+    background: #2d6a4f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.tracking-confirm-btn:hover:not(:disabled) {
+    background: #245a42;
+}
+
+.tracking-confirm-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.tracking-dispute-btn {
+    padding: 14px;
+    background: #c0392b;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.tracking-dispute-btn:hover:not(:disabled) {
+    background: #a93226;
+}
+
+.tracking-dispute-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.tracking-picked-up-msg {
+    margin: 12px 20px 8px;
+    padding: 14px;
+    background: #e8f5e9;
+    color: #2d6a4f;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Feedback Modal */
+.feedback-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.feedback-modal {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 24px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.feedback-modal h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1a1715;
+}
+
+.feedback-stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 2.8rem;
+    margin: 16px 0;
+}
+
+.feedback-star {
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.15s, transform 0.15s;
+    user-select: none;
+}
+
+.feedback-star:hover {
+    transform: scale(1.15);
+}
+
+.feedback-star.active {
+    color: #f0b429;
+}
+
+.feedback-hint {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    min-height: 28px;
+}
+
+.feedback-submit-btn {
+    padding: 12px 24px;
+    background: #1a1715;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    width: 100%;
+}
+
+.feedback-submit-btn:hover:not(:disabled) {
+    background: #2b2928;
+}
+
+.feedback-submit-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Points Modal */
+.points-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.points-modal {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 24px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.points-modal-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.points-modal h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2d6a4f;
+    margin-bottom: 8px;
+}
+
+.points-modal-amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #f0b429;
+    margin: 8px 0;
+}
+
+.points-modal-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.points-modal-btn {
+    padding: 12px 24px;
+    background: #2d6a4f;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    width: 100%;
+}
+
+.points-modal-btn:hover {
+    background: #245a42;
+}
+
+/* Refund Modal */
+.refund-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.refund-modal {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 24px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.refund-modal-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.refund-modal h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 12px;
+}
+
+.refund-modal-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.refund-modal-btn {
+    padding: 12px 24px;
+    background: #c0392b;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    width: 100%;
+}
+
+.refund-modal-btn:hover {
+    background: #a93226;
+}

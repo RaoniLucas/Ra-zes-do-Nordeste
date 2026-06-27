@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Chivo:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fredoka:wght@300..700&family=Roboto+Slab:wght@100..900&display=swap");
+
+.app-header {
+    width: 100%;
+    position: fixed;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 12;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .app-header {
+        padding: 15px 16px;
+    }
+}
+
+.header-left {
+    display: flex;
+    gap: 12px;
+}
+
+button.menu-toggle {
+    background-color: transparent;
+    margin: 0;
+    padding: 3px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: inherit;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: color 0.3s ease;
+    letter-spacing: -0.3px;
+    font-weight: 600;
+}
+
+button.btn-login,
+button.btn-notification {
+    font-size: 1rem;
+    padding: 3px 9px;
+    border-radius: 16px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+button.btn-login.light {
+    background: transparent;
+    color: #000;
+    border-color: #27272736;
+}
+
+button.btn-login.light:hover {
+    background-color: #2727271c;
+}
+
+button.btn-login.dark {
+    background: transparent;
+    color: #fff;
+    border-color: #e7e7e73b;
+}
+
+button.btn-login.dark:hover {
+    background-color: #202020;
+}
+
+button.btn-notification-icon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+button.btn-cart {
+    position: fixed;
+    margin: 12px 0 0 0;
+    padding: 4px;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        color 0.3s ease,
+        opacity 0.2s;
+}
+
+button.btn-cart:hover {
+    opacity: 0.8;
+}
+
+.snap-container {
+    height: calc(100vh);
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.section-promo,
+.section-menu {
+    scroll-snap-align: start;
+    height: 100dvh;
+}
+
+#splide01,
+#splide01-track,
+.splide__slide,
+.promo-slide {
+    height: 100dvh;
+}
+
+.promo-slide {
+    padding-top: 70px;
+    padding: 60px;
+}
+
+@media (max-width: 600px) {
+    .promo-slide {
+        padding: 70px 30px 0 30px;
+    }
+}
+
+#splide01 {
+    position: relative;
+}
+
+#splide01 .splide__arrows,
+#splide02 .splide__arrows {
+    background-color: black;
+    position: absolute;
+    z-index: 11;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    border-radius: 25px;
+    border: 1px solid black;
+    display: flex;
+    gap: 1px;
+}
+
+/* #splide02 .splide__arrows {
+    bottom: 100px;
+} */
+
+button.splide__arrow {
+    width: 60px;
+    background-color: white;
+    border: none;
+    padding: 16px 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.splide__arrow:hover {
+    background-color: white;
+}
+
+.splide__arrow:nth-child(1) {
+    border-radius: 25px 0 0 25px;
+}
+
+.splide__arrow:nth-child(2) {
+    border-radius: 0 25px 25px 0;
+}
+
+.splide__arrow svg {
+    width: 28px;
+    height: auto;
+    aspect-ratio: 19 / 8;
+    overflow: visible;
+}
+
+.splide__arrow--prev svg,
+.splide__arrow--next svg {
+    width: auto;
+    height: auto;
+    fill: currentColor;
+}
+
+.splide__arrow--prev svg {
+    transform: scaleX(-1);
+}
+
+.splide__arrow--next svg {
+    transform: none;
+}
+
+.splide__arrow {
+    color: inherit;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.splide__arrow:hover {
+    opacity: 1;
+}
+
+.splide__pagination {
+    display: none;
+}
+
+/* 
+#splide02 .splide__arrows {
+    bottom: 160px;
+} */
+
+#splide02 button.splide__arrow {
+    background-color: white;
+}

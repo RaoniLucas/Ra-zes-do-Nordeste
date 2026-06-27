@@ -1,0 +1,225 @@
+.acaraje-slide {
+    background-color: black;
+    color: #c23232;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px;
+    height: 100%;
+    /* max-width: 1500px;
+    margin: 0 auto; */
+    gap: 12px;
+}
+
+.acaraje-content:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 500px;
+}
+
+.acaraje-content:nth-child(2) {
+    position: relative;
+    display: inline-block;
+    border-radius: 12px;
+}
+
+.acaraje-badge {
+    background: #ff6b35;
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.acaraje-title {
+    font-size: clamp(6vw, 8vw, 20px);
+    font-family: "Fredoka", sans-serif !important;
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -2px;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: start;
+    font-variation-settings: "wdth" 84.3;
+}
+
+.acaraje-title span:nth-child(1) {
+    font-family: "Freckle Face", system-ui !important;
+    color: #cb7417;
+}
+
+.acaraje-title span:nth-child(2) {
+    font-family: "Fredoka", sans-serif !important;
+    color: #c23232 !important;
+}
+
+.acaraje-description {
+    text-align: start;
+    font-family: "Roboto Slab", serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    letter-spacing: -1px;
+    line-height: 1.5;
+    opacity: 0.9;
+    color: #e5d3bd;
+}
+
+.acaraje-image {
+    display: block;
+    width: 60vw;
+    min-width: 180px;
+    max-width: 700px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.acaraje-cta {
+    background-color: black;
+    color: #e5d3bd;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #e5d3bd;
+    padding: 20px 30px;
+    cursor: pointer;
+    margin-top: 28px;
+    font-family: serif;
+    font-size: 1.2em;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transform: translate(-5px, -5px);
+    transition: transform 0.1s ease;
+}
+
+.acaraje-cta::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='16'%3E%3Cdefs%3E%3Cpattern id='h' width='16' height='16' patternUnits='userSpaceOnUse' patternTransform='rotate(-45)'%3E%3Cline x1='0' y1='0' x2='0' y2='16' stroke='white' stroke-width='2'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='16' height='16' fill='url(%23h)'/%3E%3C/svg%3E");
+    border-radius: 12px;
+    border: 1px solid #e5d3bd;
+    transform: translate3d(5px, 5px, -1px);
+    transition: transform 0.1s ease;
+}
+
+.acaraje-cta:hover {
+    background-color: #e5d3bd;
+    color: black;
+    transform: translate(0px, 0px);
+}
+
+.acaraje-cta:hover::after {
+    transform: translate3d(0px, 0px, -1px);
+}
+
+.acaraje-price {
+    position: absolute;
+    right: 6%;
+    bottom: 8%;
+    z-index: 3;
+    color: #fff;
+    padding: 6px 10px;
+    padding-bottom: 200px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: "Bree Serif", serif;
+    font-size: clamp(0.9rem, 1.6vw, 1rem);
+    line-height: 1;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.acaraje-price small {
+    font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+    font-weight: 900;
+    line-height: 1;
+    vertical-align: baseline;
+    margin-left: 4px;
+}
+
+@media (max-width: 1200px) {
+    .acaraje-image {
+        width: 55vw;
+        min-width: 180px;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 900px) {
+    .acaraje-slide {
+        gap: 16px;
+    }
+
+    .acaraje-image {
+        width: 60vw;
+        min-width: 180px;
+        max-width: 690px;
+    }
+}
+
+@media (max-width: 800px) {
+    .acaraje-slide {
+        display: flex;
+        flex-direction: column;
+        padding: 68px 16px 0 16px;
+    }
+
+    .acaraje-content:nth-child(1) {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .acaraje-title {
+        font-size: clamp(12vw, 18vw, 20px);
+        text-align: center;
+    }
+
+    .acaraje-description {
+        margin: 0 30px;
+        text-align: center;
+    }
+
+    .acaraje-image {
+        width: 90vw;
+        min-width: 200px;
+        max-width: 500px;
+    }
+
+    .acaraje-price {
+        right: 10px;
+        bottom: 10px;
+        font-size: clamp(0.9rem, 4.5vw, 1.4rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .acaraje-slide {
+        padding: 68px 16px 0 16px;
+    }
+
+    .acaraje-badge {
+        margin-bottom: 0;
+    }
+
+    .acaraje-title {
+        font-size: clamp(3.6rem, 6vw, 2rem);
+        text-align: center;
+    }
+
+    .acaraje-description {
+        font-size: 0.95rem;
+    }
+}

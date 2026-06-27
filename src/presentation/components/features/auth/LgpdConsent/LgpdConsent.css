@@ -1,0 +1,56 @@
+.lgpd-overlay {
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lgpd-overlay h1 {
+    position: absolute;
+    top: 0;
+    margin: 10px;
+    font-size: 1.3em;
+}
+
+.lgpd-modal {
+    max-width: 600px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    font-family: "Inter", sans-serif;
+}
+
+.lgpd-modal h2 {
+    font-size: 2em;
+}
+
+.lgpd-modal button {
+    margin-top: 20px;
+    border-radius: 20px;
+    border: none;
+    padding: 8px 14px;
+    font-size: 1.2em;
+    color: #5d5d5d;
+    cursor: pointer;
+}
+
+.lgpd-modal button:hover {
+    color: black;
+}
+
+.lgpd-modal a {
+    margin: 8px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1px solid #b5b5b5;
+    text-decoration: none;
+    color: #919191;
+}
+
+.lgpd-modal a:hover {
+    color: black;
+}

@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100dvh;
+}
+
+#root {
+    text-align: center;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    font-family: serif;
+}

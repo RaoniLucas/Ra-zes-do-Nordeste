@@ -1,0 +1,310 @@
+.totem-checkout-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.26s ease;
+    padding: 20px;
+}
+
+.totem-checkout-overlay.visible {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.totem-checkout-modal {
+    background: #fff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95);
+    transition: transform 0.26s cubic-bezier(0.32, 0.72, 0, 1);
+    padding: 24px;
+}
+
+.totem-checkout-modal.visible {
+    transform: scale(1);
+}
+
+.totem-checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.totem-checkout-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1715;
+}
+
+.totem-checkout-close {
+    background: #f0f0f0;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.totem-checkout-step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.totem-product-info {
+    text-align: center;
+    padding: 16px;
+    background: #f8f8f8;
+    border-radius: 12px;
+}
+
+.totem-product-emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.totem-product-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a1715;
+    margin: 4px 0;
+}
+
+.totem-product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d6a4f;
+    margin: 4px 0 0;
+}
+
+.totem-payment-methods {
+    display: flex;
+    gap: 12px;
+}
+
+.totem-payment-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.15s;
+}
+
+.totem-payment-option:hover {
+    background: #e8e8e8;
+}
+
+.totem-payment-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.totem-payment-option:has(input:checked) {
+    border-color: #1a1715;
+    background: #f0f0f0;
+}
+
+.totem-pix-info {
+    text-align: center;
+    padding: 16px;
+    background: #f0f8ff;
+    border-radius: 12px;
+}
+
+.totem-pix-qr {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border: 2px dashed #1a1715;
+    border-radius: 12px;
+    margin: 12px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.totem-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.totem-card-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.totem-card-form input {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.totem-card-form input:focus {
+    border-color: #1a1715;
+    box-shadow: 0 0 0 3px rgba(26, 23, 21, 0.08);
+}
+
+.totem-card-row {
+    display: flex;
+    gap: 12px;
+}
+
+.totem-card-row label {
+    flex: 1;
+}
+
+.totem-checkout-btn {
+    width: 100%;
+    padding: 14px;
+    background: #1a1715;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 8px;
+}
+
+.totem-checkout-btn:hover:not(:disabled) {
+    background: #2b2928;
+}
+
+.totem-checkout-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.totem-checkout-done {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.totem-done-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.totem-checkout-done h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d6a4f;
+    margin: 8px 0;
+}
+
+.totem-call-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #f0b429;
+    margin: 16px 0;
+    padding: 16px;
+    background: #fffbf0;
+    border-radius: 12px;
+}
+
+.totem-call-number strong {
+    font-size: 4rem;
+}
+
+.totem-checkout-done p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 8px 0;
+}
+
+.totem-customer-name {
+    margin: 4px 0;
+}
+
+.totem-customer-name label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.totem-customer-name input {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.totem-customer-name input:focus {
+    border-color: #1a1715;
+    box-shadow: 0 0 0 3px rgba(26, 23, 21, 0.08);
+}
+
+.totem-customer-name-display {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 8px 0 16px;
+}
+
+.totem-product-description {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 4px 0 8px;
+}
+
+.totem-call-number {
+    background: #fffbf0;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 12px 0;
+    border: 2px solid #f0b429;
+}
+
+.totem-call-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.totem-call-value {
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #f0b429;
+    line-height: 1.2;
+}
+
+.totem-call-instruction {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 4px;
+}

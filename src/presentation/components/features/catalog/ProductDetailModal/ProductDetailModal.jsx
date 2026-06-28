@@ -9,8 +9,8 @@ import './ProductDetailModal.css';
 function StockBadge({ stock, inCart }) {
     if (stock == null) return null;
     const remaining = stock - inCart;
-    if (remaining <= 0) return <span className="stock-badge out">Out of stock at this unit</span>;
-    if (remaining <= 3) return <span className="stock-badge low">Only {remaining} left</span>;
+    if (remaining <= 0) return <span className="stock-badge out">Esgotado nesta unidade</span>;
+    if (remaining <= 3) return <span className="stock-badge low">Apenas {remaining} à esquerda</span>;
     return null;
 }
 
@@ -91,7 +91,7 @@ function ProductDetailModalContent({ product, onClose }) {
 
         if (!result.ok && result.added > 0) {
             setStockWarning(
-                `Only ${result.available} unit${result.available !== 1 ? 's' : ''} available at this location — we added ${result.added} to your cart.`
+                `Apenas ${result.available} unidade${result.available !== 1 ? 's' : ''} disponível neste local — adicionamos ${result.added} ao seu carrinho.`
             );
             setAdded(true);
             setTimeout(handleClose, 2000);
@@ -99,7 +99,7 @@ function ProductDetailModalContent({ product, onClose }) {
         }
 
         if (!result.ok && result.added === 0) {
-            setStockWarning(`This item is no longer available at this unit.`);
+            setStockWarning(`Este item não está mais disponível nesta unidade.`);
             return;
         }
 
@@ -170,15 +170,15 @@ function ProductDetailModalContent({ product, onClose }) {
                         disabled={added || isOutOfStock}
                     >
                         {isOutOfStock
-                            ? 'Out of stock at this unit'
+                            ? 'Esgotado nesta unidade'
                             : added
-                                ? 'Added to cart ✓'
-                                : `Add to cart · R$ ${(product.price * cappedQuantity).toFixed(2)}`}
+                                ? 'Adicionado ao carrinho ✓'
+                                : `Adicionar ao carrinho · R$ ${(product.price * cappedQuantity).toFixed(2)}`}
                     </button>
 
                     {suggestions.length > 0 && (
                         <div className="product-detail-suggestions">
-                            <h3 className="suggestions-title">Goes well with</h3>
+                            <h3 className="suggestions-title">Combina bem com</h3>
                             <ul className="suggestions-list">
                                 {suggestions.slice(0, 3).map((s) => (
                                     <SuggestionItem key={s.id} item={s} />

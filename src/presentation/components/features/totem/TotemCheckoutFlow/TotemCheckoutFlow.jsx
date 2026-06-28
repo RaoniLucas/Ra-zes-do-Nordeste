@@ -77,11 +77,10 @@ function TotemCheckoutContent({ product, onClose, onOrderPlaced }) {
             );
 
             if (paymentResult.status === 'approved') {
-                // Gerar número de chamada (1-99)
                 const callNum = Math.floor(Math.random() * 99) + 1;
                 setCallNumber(callNum);
 
-                console.log('✅ Pedido #' + order.id + ' - Chamada: ' + callNum + ' - Cliente: ' + customerName);
+                console.log('Pedido #' + order.id + ' - Chamada: ' + callNum + ' - Cliente: ' + customerName);
 
                 addNotification({
                     type: 'order',

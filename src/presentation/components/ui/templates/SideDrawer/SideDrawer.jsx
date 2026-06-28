@@ -17,7 +17,6 @@ export default function SideDrawer({
     const [showUnitSelector, setShowUnitSelector] = useState(false);
     const hasActiveOrder = Boolean(activeOrderId);
 
-    // Logs para debug
     console.log('SideDrawer - availableUnits:', availableUnits);
     console.log('SideDrawer - selectedUnit:', selectedUnit);
 
@@ -54,7 +53,7 @@ export default function SideDrawer({
                 <li>
                     <button
                         onClick={() => {
-                            console.log('🔄 Rede Disponível clicado, availableUnits:', availableUnits);
+                            console.log('Rede Disponível clicado, availableUnits:', availableUnits);
                             setShowUnitSelector(!showUnitSelector);
                         }}
                     >
@@ -67,7 +66,7 @@ export default function SideDrawer({
                                     <button
                                         className={`unit-selector-item ${selectedUnit?.id === unit.id ? 'active' : ''}`}
                                         onClick={() => {
-                                            console.log('🔄 Selecionando unidade:', unit);
+                                            console.log('Selecionando unidade:', unit);
                                             selectUnit(unit);
                                             setShowUnitSelector(false);
                                         }}

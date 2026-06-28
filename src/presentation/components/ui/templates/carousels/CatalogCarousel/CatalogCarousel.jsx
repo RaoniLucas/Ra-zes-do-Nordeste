@@ -11,8 +11,8 @@ export default function CatalogCarousel({ categories }) {
     if (!categories || categories.length === 0) {
         return (
             <div className="category-slide">
-                <h2>No products available in your region</h2>
-                <p>Try changing your location</p>
+                <h2>Nenhum produto disponível em sua região</h2>
+                <p>Tente mudar sua localização</p>
             </div>
         );
     }

@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
                 <div className="product-card-image">
                     {product.emoji
                         ? <span className="product-card-emoji">{product.emoji}</span>
-                        : <div className="product-card-placeholder">🍽️</div>
+                        : <div className="product-card-placeholder">img produto</div>
                     }
                 </div>
                 <div className="product-card-info">

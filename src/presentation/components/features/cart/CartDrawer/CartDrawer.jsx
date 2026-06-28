@@ -35,7 +35,7 @@ function CartDrawerContent({ onCheckout, onClose }) {
             >
                 <div className="cart-drawer-header">
                     <h2 className="cart-drawer-title">
-                        Your Cart
+                        Seu carrinho
                         {totalItems > 0 && (
                             <span className="cart-drawer-count">{totalItems}</span>
                         )}
@@ -46,7 +46,7 @@ function CartDrawerContent({ onCheckout, onClose }) {
                 {totalItems === 0 ? (
                     <div className="cart-empty">
                         <span className="cart-empty-icon">🛒</span>
-                        <p>Your cart is empty</p>
+                        <p>Seu carrinho está vazio</p>
                     </div>
                 ) : (
                     <>

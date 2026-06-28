@@ -19,7 +19,7 @@ export function useOrderSimulation({ orderId, token, onStatusChange, onReadyForP
         if (!isActiveRef.current || !orderId) return;
 
         try {
-            console.log(`🔄 Avançando para status: ${status} (pedido #${orderId})`);
+            console.log(`Avançando para status: ${status} (pedido #${orderId})`);
 
             if (status === 'picked-up') {
                 onStatusChange?.(status);
@@ -27,47 +27,46 @@ export function useOrderSimulation({ orderId, token, onStatusChange, onReadyForP
             }
 
             const result = await OrderService.updateStatus(orderId, status, token);
-            console.log(`✅ Status atualizado para: ${status}`, result);
+            console.log(`Status atualizado para: ${status}`, result);
             currentStatusRef.current = status;
             onStatusChange?.(status);
 
             if (status === 'ready') {
-                console.log(`🔔 Pedido #${orderId} pronto para retirada!`);
+                console.log(`Pedido #${orderId} pronto para retirada!`);
                 onReadyForPickup?.();
             }
         } catch (err) {
-            console.error(`❌ Erro ao atualizar status para ${status}:`, err);
+            console.error(`Erro ao atualizar status para ${status}:`, err);
         }
     }, [orderId, token, onStatusChange, onReadyForPickup]);
 
     useEffect(() => {
         if (!orderId) {
-            console.log('⏸️ useOrderSimulation: sem orderId, aguardando...');
+            console.log('useOrderSimulation: sem orderId, aguardando...');
             return;
         }
 
         if (startedRef.current) {
-            console.log(`⏸️ useOrderSimulation: já iniciado para pedido #${orderId}`);
+            console.log(`useOrderSimulation: já iniciado para pedido #${orderId}`);
             return;
         }
 
         startedRef.current = true;
         isActiveRef.current = true;
-        console.log(`🚀 Iniciando simulação para pedido #${orderId}`);
+        console.log(`Iniciando simulação para pedido #${orderId}`);
 
         const timers = [];
 
-        // Agendar cada status sequencialmente
-        let currentIndex = 1; // começa do 'confirmed' (índice 1)
+        let currentIndex = 1;
 
         const scheduleNext = () => {
             if (!isActiveRef.current) {
-                console.log('⏹️ Simulação cancelada');
+                console.log('Simulação cancelada');
                 return;
             }
 
             if (currentIndex >= STATUS_SEQUENCE.length) {
-                console.log('🏁 Simulação finalizada');
+                console.log('Simulação finalizada');
                 return;
             }
 
@@ -75,13 +74,12 @@ export function useOrderSimulation({ orderId, token, onStatusChange, onReadyForP
             const delay = STATUS_DELAYS_MS[status];
 
             if (delay === null) {
-                // 'picked-up' não é agendado automaticamente
                 currentIndex++;
                 scheduleNext();
                 return;
             }
 
-            console.log(`⏰ Agendando "${status}" em ${delay}ms (pedido #${orderId})`);
+            console.log(`Agendando "${status}" em ${delay}ms (pedido #${orderId})`);
 
             const timer = setTimeout(async () => {
                 await advanceTo(status);
@@ -92,16 +90,14 @@ export function useOrderSimulation({ orderId, token, onStatusChange, onReadyForP
             timers.push(timer);
         };
 
-        // Iniciar a simulação após 1 segundo (para dar tempo do pedido ser criado)
         const startTimer = setTimeout(() => {
             scheduleNext();
         }, 1000);
 
         timers.push(startTimer);
 
-        // Limpeza
         return () => {
-            console.log(`🧹 Limpando timers da simulação (pedido #${orderId})`);
+            console.log(`Limpando timers da simulação (pedido #${orderId})`);
             isActiveRef.current = false;
             timers.forEach(clearTimeout);
             timers.length = 0;
@@ -109,7 +105,6 @@ export function useOrderSimulation({ orderId, token, onStatusChange, onReadyForP
         };
     }, [orderId, advanceTo]);
 
-    // Função para forçar a parada da simulação
     const stopSimulation = useCallback(() => {
         isActiveRef.current = false;
         startedRef.current = false;

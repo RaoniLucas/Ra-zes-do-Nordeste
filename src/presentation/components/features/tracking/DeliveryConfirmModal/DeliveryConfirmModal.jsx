@@ -11,12 +11,12 @@ function DeliveryConfirmContent({ orderId, onConfirm, onDispute }) {
     }, []);
 
     const handleConfirm = () => {
-        console.log('✅ Confirmando entrega do pedido:', orderId);
+        console.log('Confirmando entrega do pedido:', orderId);
         onConfirm();
     };
 
     const handleDispute = () => {
-        console.log('⚠️ Reportando problema no pedido:', orderId);
+        console.log('Reportando problema no pedido:', orderId);
         onDispute();
     };
 

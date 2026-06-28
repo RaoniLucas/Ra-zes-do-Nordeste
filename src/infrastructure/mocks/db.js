@@ -4,14 +4,12 @@ import unitsData from './data/units.json';
 import promosData from './data/promos.json';
 import ordersData from './data/orders.json';
 
-// ============ FUNÇÕES DE PERSISTÊNCIA ============
 function loadUsers() {
     try {
         const data = localStorage.getItem('msw_users');
         if (data) {
             return JSON.parse(data);
         }
-        // Se não tiver no localStorage, usa os dados do JSON
         return [...usersData];
     } catch (error) {
         console.warn('Erro ao carregar usuários do localStorage:', error);
@@ -22,20 +20,18 @@ function loadUsers() {
 function saveUsers(users) {
     try {
         localStorage.setItem('msw_users', JSON.stringify(users));
-        console.log('✅ Usuários salvos no localStorage');
+        console.log('Usuários salvos no localStorage');
     } catch (error) {
         console.warn('Erro ao salvar usuários no localStorage:', error);
     }
 }
 
-// ============ CARREGAR DADOS ============
 let users = loadUsers();
 let products = [...productsData];
 let units = [...unitsData];
 let promos = [...promosData];
 let orders = [...ordersData];
 
-// ============ USER DB ============
 export const userDB = {
     findById: (id) => users.find((u) => u.id === id) || null,
     findByEmail: (email) => users.find((u) => u.email === email) || null,
@@ -49,22 +45,21 @@ export const userDB = {
             ...data,
         };
         users.push(user);
-        saveUsers(users); // SALVA NO LOCALSTORAGE
-        console.log('📝 Usuário criado:', user);
+        saveUsers(users);
+        console.log('Usuário criado:', user);
         return user;
     },
     update: (id, data) => {
         const index = users.findIndex((u) => u.id === id);
         if (index === -1) return null;
         users[index] = { ...users[index], ...data };
-        saveUsers(users); // SALVA NO LOCALSTORAGE
-        console.log('📝 Usuário atualizado:', users[index]);
+        saveUsers(users);
+        console.log('Usuário atualizado:', users[index]);
         return users[index];
     },
     getAll: () => users,
 };
 
-// ============ PRODUCT DB ============
 export const productDB = {
     findById: (id) => products.find((p) => p.id === id) || null,
     findByCategory: (category) => products.filter((p) => p.category === category),
@@ -82,7 +77,6 @@ export const productDB = {
     getAll: () => products,
 };
 
-// ============ UNIT DB ============
 export const unitDB = {
     findById: (id) => units.find((u) => u.id === id) || null,
     findByCity: (city) => units.filter((u) => u.cidade === city),
@@ -91,7 +85,6 @@ export const unitDB = {
     getAll: () => units,
 };
 
-// ============ PROMO DB ============
 export const promoDB = {
     findById: (id) => promos.find((p) => p.id === id) || null,
     getActive: () =>
@@ -104,7 +97,6 @@ export const promoDB = {
     getAll: () => promos,
 };
 
-// ============ ORDER DB ============
 export const orderDB = {
     findById: (id) => orders.find((o) => o.id === id) || null,
     findByUser: (userId) => orders.filter((o) => o.userId === userId),

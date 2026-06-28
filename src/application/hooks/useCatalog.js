@@ -12,7 +12,7 @@ export function useCatalog(userLocation) {
             try {
                 setState(prev => ({ ...prev, loading: true, error: null }));
 
-                console.log('🔍 useCatalog - userLocation:', userLocation); // LOG TEMPORÁRIO
+                console.log('useCatalog - userLocation:', userLocation);
 
                 let units = [];
                 if (userLocation?.automatico) {
@@ -23,18 +23,18 @@ export function useCatalog(userLocation) {
                 if (units.length === 0) units = await UnitService.getAll();
 
                 const unit = units[0] || null;
-                console.log('📦 useCatalog - unit:', unit); // LOG TEMPORÁRIO
+                console.log('useCatalog - unit:', unit);
 
                 const products = await ProductService.getAll(unit ? { unitId: unit.id } : {});
-                console.log('🍽️ useCatalog - products:', products); // LOG TEMPORÁRIO
+                console.log('useCatalog - products:', products);
 
                 if (!cancelled) {
                     const categories = groupByCategory(products);
-                    console.log('📂 useCatalog - categories:', categories); // LOG TEMPORÁRIO
+                    console.log('useCatalog - categories:', categories);
                     setState({ categories, loading: false, error: null });
                 }
             } catch (err) {
-                console.error('❌ useCatalog - error:', err); // LOG TEMPORÁRIO
+                console.error('useCatalog - error:', err);
                 if (!cancelled) setState(prev => ({ ...prev, loading: false, error: err.message }));
             }
         }

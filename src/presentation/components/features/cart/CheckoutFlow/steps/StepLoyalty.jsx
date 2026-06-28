@@ -4,7 +4,6 @@ export default function StepLoyalty({ user, onAccept, onDecline, onSkip }) {
     const [showConsent, setShowConsent] = useState(false);
     const [accepted, setAccepted] = useState(false);
 
-    // Se o usuário já é membro, pular automaticamente
     useEffect(() => {
         if (user?.isLoyaltyMember) {
             onAccept();
@@ -31,7 +30,6 @@ export default function StepLoyalty({ user, onAccept, onDecline, onSkip }) {
         }
     };
 
-    // Se já é membro, não renderizar nada
     if (user?.isLoyaltyMember) {
         return null;
     }

@@ -40,8 +40,7 @@ function ProfilePageContent({ onClose, onLogout }) {
     useEffect(() => {
         requestAnimationFrame(() => setVisible(true));
     }, []);
-
-    // Preencher campos de endereço quando userAddress mudar
+    
     useEffect(() => {
         if (userAddress) {
             setCep(userAddress.cep || '');
@@ -87,7 +86,6 @@ function ProfilePageContent({ onClose, onLogout }) {
             };
             updateUserAddress(addressData);
 
-            // Também atualizar a localização do usuário no contexto
             const locationData = {
                 cep,
                 cidade,
@@ -96,7 +94,6 @@ function ProfilePageContent({ onClose, onLogout }) {
                 estado,
                 automatico: false,
             };
-            // Se tiver CEP, buscar unidades próximas
             if (cep && cep.length === 8) {
                 await setLocationByCep(cep);
             }
@@ -125,7 +122,6 @@ function ProfilePageContent({ onClose, onLogout }) {
     const handleCepBlur = async () => {
         if (cep && cep.length === 8) {
             try {
-                // Buscar endereço via CEP
                 const addressData = await fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json());
                 if (!addressData.erro) {
                     setRua(addressData.logradouro || '');

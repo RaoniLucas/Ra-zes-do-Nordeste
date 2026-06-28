@@ -44,8 +44,6 @@ export default function UserAppHome({ userLocation }) {
     } = useModals();
 
     const [pedidoAtivo, setPedidoAtivo] = useState(false);
-
-    // Verificar se o pedido está ativo (status != 'picked-up')
     useEffect(() => {
         if (activeOrderId) {
             OrderService.getTracking(activeOrderId)
@@ -72,7 +70,6 @@ export default function UserAppHome({ userLocation }) {
 
     const handleCloseTracking = () => {
         setTrackingOrderId(null);
-        // Verificar novamente o status ao fechar o tracking
         if (activeOrderId) {
             OrderService.getTracking(activeOrderId)
                 .then(data => {
@@ -83,10 +80,6 @@ export default function UserAppHome({ userLocation }) {
                 });
         }
     };
-
-    // MOSTRA o ícone APENAS se:
-    // 1. O usuário está logado, OU
-    // 2. Tem um pedido ativo (status não é 'picked-up')
     const showNotificationIcon = user || pedidoAtivo;
 
     const showLoginButton = !user && !isSideDrawerOpen && totalItems === 0;
